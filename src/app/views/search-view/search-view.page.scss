@@ -1,0 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: "Inter", sans-serif;
+  background: #fff;
+}
+.MaxA{
+  margin-top: 10%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
+}
+input{
+  width: 285px;
+  height: 50px;
+  border-radius: 25px;
+  border-style: none;
+  background-color: #e9e3e5;
+  font-size: 20px;
+  color: #80616D;
+  text-align: start;
+}
+input::placeholder{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+.MaxB{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+img{
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+}
+
+.icono-content{
+  position: absolute;
+  left: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.btn-icono{
+  background: transparent;
+}
+.imagee{
+  width: 50px;
+  height: 50px;
+}
+
+

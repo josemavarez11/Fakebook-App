@@ -1,0 +1,7 @@
+{
+  "name": "Fakebook",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

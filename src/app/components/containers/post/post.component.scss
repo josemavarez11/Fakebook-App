@@ -1,0 +1,199 @@
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.descrip-content{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.img-content{
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  // gap: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.like-content{
+    margin-top: 2%;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 5%;
+    border-bottom: 0.5px solid #4D2959;
+    padding-bottom: 1%;
+}
+button{
+    background: transparent;
+    color: black;
+    font-size: 16px;
+}
+p{
+    color: black;
+}
+.image{
+    width: 25px;
+    height: 25px;
+}
+img{
+    width: 80px;
+    height: 70px;
+    margin-bottom: 2%;
+}
+.icono-content{
+    display: flex;
+    justify-content: flex-start;
+    width: 10%;
+}
+.icono-contentt{
+    display: flex;
+    justify-content: flex-end;
+    width: 10%;
+}
+.icono-search{
+    width: 50px;
+    height: 50px;
+}
+.comments{
+    width: 90%;
+    display: flex;
+}
+.text-comments{
+    color: #4D2959;
+    font-size: 11px;
+    font-weight: bold;
+}
+.btn-fav{
+    border-radius: 25%;
+    padding: 5px 8px;
+}
+.btn-like{
+    border-radius: 25%;
+    padding: 5px 8px;
+}
+
+.day-name{
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.4;
+    color: black;
+    font-size: small;
+    margin-bottom: 1%;
+    .name{
+        opacity: 1;
+        font-size: medium;
+        color: #4D2959;
+        font-weight: bold;
+    }
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    transition: all 0.3s;
+    fill: #959595;
+  }
+
+//   svg:hover {
+//     transform: scale(1.1) rotate(-10deg);
+//   }
+
+  .container input:checked ~ svg {
+    fill: #4D2959;
+  }
+
+  .bookmark {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #checkboxInput {
+    display: none;
+  }
+
+  .svgIcon {
+    height: 20px;
+    width: 20px;
+  }
+
+  .svgIcon path {
+    fill: #959595;
+  }
+
+  .bookmark::before {
+    content: "\002B";
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+    top: 1px;
+  }
+
+  #checkboxInput:checked + .bookmark::before {
+    content: "\2713";
+    font-size: 0.70em;
+    top: 5px;
+  }
+
+  #checkboxInput:checked + .bookmark .svgIcon path {
+    fill: #4D2959;
+  }
+
+
+
+  .bookmark::after {
+    content: "";
+    background-color: rgba(56, 105, 0, 0.342);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  #checkboxInput:checked + .bookmark::after {
+    animation: puff-out-center .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+  }
+
+  @keyframes puff-out-center {
+    0% {
+      transform: scale(1);
+      filter: blur(0px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(9);
+      filter: blur(1px);
+      opacity: 0;
+    }
+  }
+

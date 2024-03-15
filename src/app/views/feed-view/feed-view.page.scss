@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #FFFFFF;
+    font-family: "Inter", sans-serif;
+}
+.MaxA{
+    margin-top: 10%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    // margin-bottom: 5%;
+}
+.patron{
+    overflow-y: auto;
+}
+.MaxB{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+.title{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, rgb(241, 236, 236),#80616D);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.content{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn-content{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    font-size: 20px;
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+.title-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.descrip-content{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.img-content{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1px;
+}
+h3{
+    color: #4D2959;
+    font-size: 24px;
+    font-weight: bold;
+}
+.like-content{
+    margin-top: 3%;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 5%;
+    border-bottom: 0.5px solid #4D2959;
+    padding-bottom: 5%;
+}
+button{
+    background: transparent;
+    color: black;
+    font-size: 16px;
+}
+p{
+    color: black;
+}
+.image{
+    width: 25px;
+    height: 25px;
+}
+img{
+    width: 80px;
+    height: 70px;
+}
+.icono-content{
+    display: flex;
+    justify-content: flex-start;
+    width: 10%;
+}
+.icono-contentt{
+    display: flex;
+    justify-content: flex-end;
+    width: 10%;
+}
+.icono-search{
+    width: 50px;
+    height: 50px;
+}
+.comments{
+    width: 90%;
+    display: flex;
+}
+.text-comments{
+    color: #4D2959;
+    font-size: 11px;
+    font-weight: bold;
+}
+.btn-fav{
+    border-radius: 100%;
+    padding: 5px 8px;
+}
+.btn-like{
+    border-radius: 100%;
+    padding: 5px 8px;
+}
+.day-name{
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.4;
+    color: black;
+    font-size: small;
+    margin-bottom: 3%;
+}
+p{
+    color: #AA959D;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.msg{
+    width: 80%;
+}

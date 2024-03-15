@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Red+Hat+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="contentMax">
+    <div class="contentTitle">
+      <img src="../../../assets/iconoF.png">
+      <h3>Sign in</h3>
+    </div>
+    <div class="contentMin">
+      <form action="" class="formularioLogin">
+        <div class="email">
+
+          <article>
+            <img class="icon" src="../../../assets/mail-outline.svg">
+          </article>
+
+          <input type="text" (change)="handleEmailInputChange($event)" [(ngModel)]="emailInputValue" name="emal" required>
+          <label>Email</label>
+
+          <button class="btn-clear" (click)="clearEmailInput()" *ngIf="emailInputValue">
+            <img src="../../../assets/close-outline.svg" class="icon">
+          </button>
+        </div>
+        <div class="email">
+
+          <article>
+            <img class="icon" src="../../../assets/lock-closed-outline.svg">
+          </article>
+
+          <input type="password" (change)="handlePasswordInputChange($event)" [(ngModel)]="passwordInputValue" name="password" required>
+          <label>Password</label>
+          <button class="btn-clear" (click)="clearPasswordInput()" *ngIf="passwordInputValue">
+            <img src="../../../assets/close-outline.svg" class="icon">
+          </button>
+        </div>
+      </form>
+      <div class="conetntBtn">
+        <button (click)="handleLoginClick()">Log In</button>
+        <a [routerLink]="['/register']">Don't have an acount yet?</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

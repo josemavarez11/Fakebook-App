@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Red+Hat+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <div class="MaxA">
+      <div class="icono-content">
+        <button [routerLink]="['/user-settings']" class="btn-icono">
+          <img src="../../../assets/chevron-back-outline.svg">
+      </button>
+      </div>
+      <img class="icono" src="../../../assets/person-outline.svg">
+      <h3 class="title">{{ userName }}</h3>
+    </div>
+
+
+    <div class="MaxB">
+      <div class="content" >
+        <article class="title-content">
+          <h3>All my posts</h3>
+          <button (click)="handleFavoriteClick()" class="fav">
+            <label class="ui-bookmark">
+              <input type="checkbox" />
+              <div class="bookmark">
+                <svg viewBox="0 0 32 32">
+                  <g>
+                    <path
+                      d="M27 4v27a1 1 0 0 1-1.625.781L16 24.281l-9.375 7.5A1 1 0 0 1 5 31V4a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+            </label>
+          </button>
+        </article>
+        <div class="msg">
+          <p class="empty-msg" *ngIf="myPosts.length===0">You haven't posted anything yet</p>
+        </div>
+        <div class="orale">
+          <app-my-post></app-my-post>
+        </div>
+        
+      </div>
+    </div>
+
+
+  </div>
+</body>
+</html>

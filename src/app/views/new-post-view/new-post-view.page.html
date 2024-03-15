@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Red+Hat+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <div class="MaxA">
+      <div class="icono-content">
+        <button [routerLink]="['/feed']" class="btn-icono">
+          <img src="../../../assets/chevron-back-outline.svg">
+      </button>
+      </div>
+      <h3 class="title">Create new post</h3>
+    </div>
+    <div class="MaxB">
+      <textarea name="" id="" rows="10" [(ngModel)]="textInput" (input)="countCharacters()" maxlength="400" class="textarea" placeholder="What’s on your mind?"></textarea>
+      <div class="contador">
+        <p>Characters:  {{characters}}/400</p>
+      </div>
+    </div>
+
+    <div class="MaxC">
+      <div class="tack" (click)="toggleAccordion()">
+        <p class="select">Select images from your gallery</p>
+        <div>
+          <p>{{countImg}}/8</p>
+        </div>
+        <img [src]="accordionOpen ? '../../../assets/chevron-down-outline.svg' : '../../../assets/chevron-up-outline.svg'">
+      </div>
+
+      <div class="img" *ngIf="accordionOpen">
+        <img [src]="image" *ngFor="let image of images" class="image">
+        <div class="file-select" id="src-fiel">
+          <input type="file" (change)="uploadImage($event)" aria-label="Image" name="src-file2">
+        </div>
+      </div>
+    </div>
+    <div class="post">
+        <button (click)="createPost()" class="btn-post"><p class="text-post">Post it!</p></button>
+    </div>
+  </div>
+</body>
+</html>

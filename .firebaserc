@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "fakebook-3d357": {
+      "hosting": {
+        "app": [
+          "fakebook-3d357"
+        ]
+      }
+    },
+    "fakebookapp-136bd": {
+      "hosting": {
+        "app": [
+          "fakebookapp-136bd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fakebookapp-136bd"
+  }
+}

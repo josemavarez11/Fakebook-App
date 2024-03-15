@@ -1,0 +1,38 @@
+button{
+    height: 100%;
+    width: 80%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+}
+article{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+img{
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+p{
+    width: 100%;
+}
+
+section{
+    width: 320px;
+    height: 80px;
+    background: #80616D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3%;
+    border-radius: 15px;
+  }

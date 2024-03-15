@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Red+Hat+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+
+    <div class="MaxA">
+      <div class="icono-content">
+        <button [routerLink]="['/user-settings']" class="btn-icono">
+          <img src="../../../assets/chevron-back-outline.svg">
+      </button>
+      </div>
+      <div class="ask">
+        <h3 class="title">Friend</h3>
+      </div>
+
+
+    </div>
+
+    <div class="add-remove">
+      <app-add-friend></app-add-friend>
+    </div>
+
+    <div class="MaxB">
+      <div class="content">
+          <div class="descrip-content">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio dologggggribus ut ab iure magni corporis facere amet ipsam, adipisci esse, maxime modi laborum animi? Quas alias corrupti eius aut voluptatum!</p>
+          </div>
+          <div class="img-content">
+            <img [src]="image" *ngFor="let image of images" class="img">
+          </div>
+
+          <div class="like-content">
+            <div class="comments">
+              <button>
+                <p (click)="handleExploreCommentsClick()" class="text-comments">explore comments</p>
+              </button>
+            </div>
+              <p class="day">last edited 12/12/23 15:30</p>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

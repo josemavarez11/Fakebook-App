@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body{
+    background: #FFFFFF;
+    font-family: "Inter", sans-serif;
+  }
+
+  .MaxA{
+    margin-top: 10%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20%;
+  }
+
+  .MaxB{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 70px;
+  }
+
+  .title{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, rgb(241, 236, 236),#80616D);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .subTitle{
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  .btn{
+    width: 140px;
+    height: 45px;
+    background: #4D2959;
+    border-radius: 15px;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+  }
+
+  .btn:hover{
+    background: #6b5074;
+  }
+
+  img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .icono-content{
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+  }
+
+  .btn-icono{
+    background: white;
+  }
+
+  .img-delete{
+    width: 100px;
+    height: 100px;
+  }
+
+  .i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  }

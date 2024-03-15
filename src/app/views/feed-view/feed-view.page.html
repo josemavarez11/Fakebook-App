@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Red+Hat+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+
+    <div class="MaxA">
+      <div class="icono-content">
+        <button [routerLink]="['/new-post']" class="btn-icono">
+            <img class="icono-search" src="../../../assets/add-outline.svg">
+        </button>
+      </div>
+        <h3 class="title">Fakebook</h3>
+      <div class="icono-contentt">
+        <button [routerLink]="['/search']" class="btn-icono">
+            <img class="icono-search" src="../../../assets/search-outline.svg">
+        </button>
+      </div>
+
+    </div>
+
+    <div class="MaxB">
+      <div class="content">
+        <article class="title-content">
+          <h3>what your friends are doing...</h3>
+        </article>
+      </div>
+      <div *ngIf="posts.length === 0" class="msg">
+        <p>It seems like your friends haven't posted anything yet!</p>
+      </div>
+
+      <ng-container *ngIf="posts.length !== 0">
+        <div *ngFor="let post of posts" class="patron">
+          <app-post
+            [_id]="post._id"
+            [name]="post.user.name"
+            [description]="post.body"
+            [date]="post.createdAt"
+            [images]="post.images"
+            [liked]= "post.liked"
+            [favorited]= "post.favorite">
+          </app-post>
+        </div>
+
+      </ng-container>
+
+    </div>
+  </div>
+  <app-nav-bar></app-nav-bar>
+</body>
+</html>
