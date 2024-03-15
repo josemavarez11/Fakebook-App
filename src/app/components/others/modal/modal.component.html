@@ -26,10 +26,9 @@
                 <p>{{comment.body}}</p>
               </div>
             </div>
-            <section *ngFor="let image of comment.images">
-              <div class="img-sub">
-                <img src={{image}}>
-              </div>
+
+            <section class="img-sub">
+                <img [src]=image *ngFor="let image of comment.images">
             </section>
           </div>
         </div>
