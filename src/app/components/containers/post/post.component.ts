@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Storage} from '@angular/fire/storage';
 import { ModalComponent } from '../../others/modal/modal.component';
 import { SwitchService } from 'src/services/switch.service';
@@ -45,7 +45,8 @@ export class PostComponent  implements OnInit {
     this.modalOpen = true;
   }
 
-  async handleFavoriteClick() {
+  async handleFavoriteClick(event: any) {
+  
     if(this.favorited) {
       console.log('el post es favorito, hay que quitarle el favorito')
       try {
