@@ -62,7 +62,12 @@ button{
   }
 
   .msg{
-    background: #6d5973;
+    background: transparent;
     border-radius: 100%;
     padding: 3px;
+  }
+
+  .msg:hover{
+    background: #6d5973;
+    transition: 0.5s;
   }

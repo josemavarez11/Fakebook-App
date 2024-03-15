@@ -57,4 +57,30 @@ img{
   height: 50px;
 }
 
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ion-content{
+  --background: #FFFFFF;
+}
+
+ion-card{
+  // width: 90%;
+  height: 100%;
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: #e9e3e5;
+  margin-bottom: 10px;
+}
+
 

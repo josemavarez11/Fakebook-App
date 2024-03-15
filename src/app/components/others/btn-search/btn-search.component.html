@@ -1,5 +1,5 @@
 <section>
-  <button (click)="handleUserClick()">
+  <button [routerLink]="['/user-profile-friend']">
     <article>
       <div>
         <img src="../../../assets/person-outline.svg">
@@ -8,3 +8,12 @@
     </article>
   </button>
 </section>
+
+  <!-- <ion-button [routerLink]="['/user-profile-friend']">
+    <img src="/assets/person-outline.svg">
+    <p>{{user.name}}</p>
+  </ion-button> -->
+
+      <!-- <ion-img src="/assets/person-outline.svg"></ion-img>
+    <ion-label>{{user.name}}</ion-label> -->
+

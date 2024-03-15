@@ -18,6 +18,7 @@ export class SearchViewPage implements OnInit {
   token: GetResult;
   usersFound: any;
   user: any;
+  isOpen: boolean = false;
 
   constructor(private router: Router) {
     this.token = { value: '' };
@@ -57,5 +58,14 @@ export class SearchViewPage implements OnInit {
     console.log('User clicked');
   }
 
+
+
+  async presentModal(){
+    this.isOpen = true;
+  }
+
+  dismissModal(){
+    this.isOpen = false;
+  }
 }
 
