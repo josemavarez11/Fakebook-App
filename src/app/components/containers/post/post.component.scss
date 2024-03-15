@@ -117,16 +117,16 @@ img{
     width: 25px;
     height: 25px;
     transition: all 0.3s;
-    // fill: #959595;
+    fill: #959595;
   }
 
 //   svg:hover {
 //     transform: scale(1.1) rotate(-10deg);
 //   }
 
-  // .container input:checked ~ svg {
-  //   fill: #4D2959;
-  // }
+  .container input:checked ~ svg {
+    fill: #4D2959;
+  }
 
   .bookmark {
     position: relative;
