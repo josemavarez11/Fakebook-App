@@ -40,8 +40,9 @@
         <div class="msg">
           <p class="empty-msg" *ngIf="myPosts.length===0">You haven't posted anything yet</p>
         </div>
-        <div class="orale" *ngFor="let myPost of myPosts">
+        <div class="scroll" >
           <app-my-post
+            *ngFor="let myPost of myPosts"
             [description]="myPost.body"
             [images]="myPost.images"
             [date]="myPost.updatedAt"

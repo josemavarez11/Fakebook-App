@@ -6,7 +6,6 @@
 <div class="content">
   <div class="descrip-content">
     <div class="day-name">
-      <span class="name">quitar este nombre</span>
           <div class="trash">
             <button (click)="onDeleteClick()">
               <img src="../../../../assets/trash-outline.svg">
@@ -18,12 +17,14 @@
     </div>
     <p>{{description}}</p>
     <div class="day">
-      <span class="date">actualizado el {{date}}</span>
+      <span>{{date}}</span>
     </div>
   </div>
+
   <div class="img-content">
     <img [src]="image" *ngFor="let image of images" class="img">
   </div>
+
   <div class="like-content">
     <div class="comments">
       <button>
