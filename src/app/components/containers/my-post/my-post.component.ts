@@ -19,7 +19,7 @@ export class MyPostComponent  implements OnInit {
   token: GetResult ;
 
   @Input() _id: string = '';
-  @Input() description:string = '';
+  @Input() description: string = '';
   @Input() name: string = '';
   @Input() images: string[] = [];
   @Input() date: string = '';
@@ -27,7 +27,6 @@ export class MyPostComponent  implements OnInit {
   @Input() favorited: boolean = false;
 
   constructor(private storage: Storage, private modalSS: SwitchService) {
-    this.images = [];
     this.likeClicked = false;
     this.favoriteClicked = false;
     this.modalOpen = false;

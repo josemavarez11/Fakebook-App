@@ -16,8 +16,6 @@
       <img class="icono" src="../../../assets/person-outline.svg">
       <h3 class="title">{{ userName }}</h3>
     </div>
-
-
     <div class="MaxB">
       <div class="content" >
         <article class="title-content">
@@ -42,14 +40,15 @@
         <div class="msg">
           <p class="empty-msg" *ngIf="myPosts.length===0">You haven't posted anything yet</p>
         </div>
-        <div class="orale">
-          <app-my-post></app-my-post>
+        <div class="orale" *ngFor="let myPost of myPosts">
+          <app-my-post
+            [description]="myPost.body"
+            [images]="myPost.images"
+            [date]="myPost.updatedAt"
+          ></app-my-post>
         </div>
-        
       </div>
     </div>
-
-
   </div>
 </body>
 </html>
