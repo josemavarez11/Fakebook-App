@@ -1,29 +1,43 @@
-img{
-    width: 25px;
-    height: 25px;
-}
-div{
+.content{
     display: flex;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
+    flex-direction: row;
     margin-top: 30px;
-    margin-bottom: 15px;
+    width: 100%;
+    // background: red;
 }
-button{
-    background: transparent;
-    color: black;
-}
+
 input{
     background: transparent;
     border: none;
     outline: none;
-    color: #AA959D;
+    color : #6d5973;
+    // background: red;
+    width: 90%;
+}
+
+img{
+    width: 20px;
+    height: 20px;
+}
+
+button{
+    background: transparent;
+}
+
+.MaxB{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: blue;
+    // gap: 15px;
 }
 .button {
     display: inline-block;
     position: relative;
     overflow: hidden;
-    background-color: gray;
+    // background-color: gray;
     color: white;
     padding: 10px 15px;
     text-align: center;
@@ -42,4 +56,13 @@ input{
     cursor: pointer;
     height: 100%;
     width: 100%;
+  }
+  .flex{
+    display: flex;
+  }
+
+  .msg{
+    background: #6d5973;
+    border-radius: 100%;
+    padding: 3px;
   }

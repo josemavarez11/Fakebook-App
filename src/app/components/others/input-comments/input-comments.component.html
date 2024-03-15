@@ -1,6 +1,16 @@
-<div>
-  <input type="text" (change)="handleCommentInputChange($event)" placeholder="| your comment here" maxlength="200">
-  <label class="button">
-    <input type="file" (change)="uploadImage($event)">
-  </label>
+<div class="content">
+  <div>
+    <input type="text" placeholder="| your comment here" maxlength="200">
+  </div>
+
+  <div class="MaxB">
+    <label class="button">
+      <img src="../../../../assets/image-outline.svg">
+      <input type="file" (change)="uploadImage($event)">
+    </label>
+    <button class="msg">
+      <img src="../../../../assets/arrow-up-outline.svg">
+    </button>
+  </div>
 </div>
+
