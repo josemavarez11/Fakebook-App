@@ -22,7 +22,8 @@
       <div class="content" >
         <article class="title-content">
           <h3>All my posts</h3>
-          <button (click)="handleFavoriteClick()" class="fav">
+
+          <button (click)="handleFavoriteClick()">
             <label class="ui-bookmark">
               <input type="checkbox" />
               <div class="bookmark">
@@ -36,6 +37,7 @@
               </div>
             </label>
           </button>
+
         </article>
         <div class="msg">
           <p class="empty-msg" *ngIf="myPosts.length===0">You haven't posted anything yet</p>
