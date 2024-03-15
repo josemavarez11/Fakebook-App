@@ -15,9 +15,13 @@ body{
     gap: 10px;
     // margin-bottom: 5%;
 }
-.patron{
+.scroll{
+    display: flex;
+    flex-direction: column;
+    max-height: 720px; /* Set the maximum height as per your requirement */
     overflow-y: auto;
 }
+
 .MaxB{
     display: flex;
     justify-content: center;
