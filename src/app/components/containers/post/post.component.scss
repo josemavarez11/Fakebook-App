@@ -121,16 +121,20 @@ img{
     width: 25px;
     height: 25px;
     transition: all 0.3s;
-    fill: #959595;
+    fill: #d5cbd9;
   }
 
-//   svg:hover {
-//     transform: scale(1.1) rotate(-10deg);
-//   }
-
-  .container input:checked ~ svg {
-    fill: #4D2959;
+  #Layer_1{
+    fill: #d5cbd9;
   }
+
+  svg:hover {
+    transform: scale(1.1) rotate(-10deg);
+  }
+
+  // .container input:checked ~ svg {
+  //   fill: #4D2959;
+  // }
 
   .bookmark {
     position: relative;
@@ -149,9 +153,9 @@ img{
     width: 20px;
   }
 
-  .svgIcon path {
-    fill: #959595;
-  }
+  // .svgIcon path {
+  //   fill: #959595;
+  // }
 
   .bookmark::before {
     content: "\002B";
@@ -167,11 +171,9 @@ img{
     top: 5px;
   }
 
-  #checkboxInput:checked + .bookmark .svgIcon path {
-    fill: #4D2959;
-  }
-
-
+  // #checkboxInput:checked + .bookmark .svgIcon path {
+  //   fill: #4D2959;
+  // }
 
   .bookmark::after {
     content: "";
@@ -208,14 +210,14 @@ img{
     height: 0;
     width: 0;
   }
-  
+
   .containerr {
     display: block;
     position: relative;
     cursor: pointer;
     user-select: none;
   }
-  
+
   .containerr svg {
     position: relative;
     top: 0;
@@ -225,12 +227,11 @@ img{
     transition: all 0.3s;
     fill: #666;
   }
-  
+
   .containerr svg:hover {
     transform: scale(1.1);
   }
-  
+
   .containerr input:checked ~ svg {
     fill: #4D2959;
   }
-  
