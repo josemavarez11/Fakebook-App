@@ -27,7 +27,7 @@ export class ModalComponent  implements OnInit {
 
   async ngOnInit() {
     this.token = await Preferences.get({ key: 'token'});
-    this.getComments();
+    // this.getComments();
   }
 
   closeModal(){
@@ -39,24 +39,24 @@ export class ModalComponent  implements OnInit {
     // this.favoeiteClicked = false;
   }
 
-  async getComments() {
-    try {
-      const response = await fetch('https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/comments/getAll', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.token.value}`
-        },
-        body: JSON.stringify({ postId: this._id })
-      });
+  // async getComments() {
+  //   try {
+  //     const response = await fetch('https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/comments/getAll', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'Authorization': `Bearer ${this.token.value}`
+  //       },
+  //       body: JSON.stringify({ postId: this._id })
+  //     });
 
-      if(response.status !== 200) return alert('Error!', 'Server error getting comments', ['OK']);
+  //     if(response.status !== 200) return alert('Error!', 'Server error getting comments', ['OK']);
 
-      const data = await response.json();
-      return this.comments = data.formattedComments;
-    } catch (error) {
-      return alert('Error!', 'Unable to get comments', ['OK']);
-    }
-  }
+  //     const data = await response.json();
+  //     return this.comments = data.formattedComments;
+  //   } catch (error) {
+  //     return alert('Error!', 'Unable to get comments', ['OK']);
+  //   }
+  // }
 
 }

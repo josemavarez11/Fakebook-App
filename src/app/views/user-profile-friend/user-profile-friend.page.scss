@@ -77,6 +77,13 @@
     margin-bottom: 10px;
     font-size: 16px;
   }
+  .scroll{
+    display: flex;
+    flex-direction: column;
+    max-height: 600px; /* Set the maximum height as per your requirement */
+    overflow-y: auto;
+    margin-bottom: 10%;
+  }
   
   .img-content{
     width: 90%;
@@ -166,4 +173,11 @@
   .add-remove{
     width: 100%;
   }
-  
+  .img-sub {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }

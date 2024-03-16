@@ -2,30 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { RouterLink} from '@angular/router';
-import { Storage } from '@angular/fire/storage';
+import { RouterLink } from '@angular/router';
+import { MyPostComponent } from 'src/app/components/containers/my-post/my-post.component';
 import { alert } from 'src/app/utils/alert';
 import { GetResult, Preferences } from '@capacitor/preferences';
-import { MyPostComponent } from 'src/app/components/containers/my-post/my-post.component';
+import { Storage } from '@angular/fire/storage';
 
 @Component({
-  selector: 'app-user-profile-view',
-  templateUrl: './user-profile-view.page.html',
-  styleUrls: ['./user-profile-view.page.scss'],
+  selector: 'app-favorites-view',
+  templateUrl: './favorites-view.page.html',
+  styleUrls: ['./favorites-view.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink, MyPostComponent],
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink, MyPostComponent]
 })
-export class UserProfileViewPage implements OnInit {
+export class FavoritesViewPage implements OnInit {
   images: string[];
   token: GetResult;
   userName: string;
   myPosts: any[] = [];
 
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage) { 
     this.images = [];
     this.token = { value: '' };
     this.userName = "";
-  }
+   }
 
   async ngOnInit() {
     this.token = await Preferences.get({ key : 'token' });
@@ -75,3 +75,4 @@ export class UserProfileViewPage implements OnInit {
     
   }
 }
+

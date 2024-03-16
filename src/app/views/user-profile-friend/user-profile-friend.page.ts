@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -10,13 +10,14 @@ import { GetResult, Preferences } from '@capacitor/preferences';
 import { AddFriendComponent } from 'src/app/components/others/add-friend/add-friend.component';
 import { RemoveFriendComponent } from 'src/app/components/others/remove-friend/remove-friend.component';
 import { ActivatedRoute } from '@angular/router';
+import { ModalComponent } from 'src/app/components/others/modal/modal.component';
 
 @Component({
   selector: 'app-user-profile-friend',
   templateUrl: './user-profile-friend.page.html',
   styleUrls: ['./user-profile-friend.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink, AddFriendComponent, RemoveFriendComponent]
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink, AddFriendComponent, RemoveFriendComponent, ModalComponent]
 })
 export class UserProfileFriendPage implements OnInit {
   images: string[];
@@ -25,12 +26,17 @@ export class UserProfileFriendPage implements OnInit {
   userPosts: any[] = [];
   frienshipExists: boolean;
   userProfileId: string = '';
+  modalOpen: boolean;
+
+  @Input() _id: string = '';
 
   constructor(private storage: Storage, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {
     this.images = [];
     this.token = { value: '' };
     this.userName = "";
     this.frienshipExists = false;
+    this.modalOpen = false;
+    
   }
 
   async ngOnInit() {
@@ -46,6 +52,10 @@ export class UserProfileFriendPage implements OnInit {
     this.getName();
     this.getAllPosts();
     this.getImages();
+  }
+
+  modalOpenHandler() {
+    this.modalOpen = true;
   }
 
   async friendshipExists() {
@@ -122,4 +132,6 @@ export class UserProfileFriendPage implements OnInit {
       return alert("Oops", "Something went wrong trying to get user email and name", ["OK"]);
     }
   }
+
+
 }

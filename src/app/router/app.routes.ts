@@ -67,5 +67,10 @@ export const routes: Routes = [
     path: 'user-profile-friend',
     loadComponent: () => import('../views/user-profile-friend/user-profile-friend.page').then( m => m.UserProfileFriendPage)
   },
+  {
+    path: 'favorites',
+    loadComponent: () => import('../views/favorites-view/favorites-view.page').then( m => m.FavoritesViewPage)
+  },
+
 
 ];

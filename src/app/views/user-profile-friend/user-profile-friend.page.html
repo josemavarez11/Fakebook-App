@@ -7,7 +7,6 @@
 </head>
 <body>
   <div>
-
     <div class="MaxA">
       <div class="icono-content">
         <button [routerLink]="['/feed']" class="btn-icono">
@@ -30,20 +29,27 @@
             <p>{{userPost.body}} </p>
           </div>
 
-          <ng-container class="img-content" *ngFor="let image of userPost.images">
-            <img [src]="image" class="img">
-          </ng-container>
+          <section class="img-sub">
+            <img [src]="image" *ngFor="let image of userPost.images" class="img">
+          </section>
 
           <div class="like-content">
             <div class="comments">
-              <button>
-                <p class="text-comments">explore comments</p>
+              <button (click)="modalOpenHandler()">
+                <p class="text-comments" >explore comments</p>
               </button>
             </div>
               <p class="day">{{userPost.createdAt}}</p>
           </div>
       </div>
     </div>
+
+    
+  <div class="modal">
+    <div *ngIf="modalOpen == true">
+      <app-modal [_id]="_id" ></app-modal>
+    </div>
+  </div>
   </div>
 </body>
 </html>
