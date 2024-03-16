@@ -24,7 +24,7 @@ export class UserProfileFriendPage implements OnInit {
   token: GetResult;
   userName: string;
   userPosts: any[] = [];
-  frienshipExists: boolean;
+  friendshipExists: boolean = false;
   userProfileId: string = '';
   modalOpen: boolean;
 
@@ -34,9 +34,8 @@ export class UserProfileFriendPage implements OnInit {
     this.images = [];
     this.token = { value: '' };
     this.userName = "";
-    this.frienshipExists = false;
     this.modalOpen = false;
-    
+
   }
 
   async ngOnInit() {
@@ -44,11 +43,8 @@ export class UserProfileFriendPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       const paramValue = params['id'];
       this.userProfileId = paramValue;
-      const paramValue2 = params['friendshipExists'];
-      this.frienshipExists = paramValue2;
-      console.log('son amigos?', this.frienshipExists);
     });
-    //this.friendshipExists();
+    this.getFriendshipExists();
     this.getName();
     this.getAllPosts();
     this.getImages();
@@ -58,7 +54,7 @@ export class UserProfileFriendPage implements OnInit {
     this.modalOpen = true;
   }
 
-  async friendshipExists() {
+  async getFriendshipExists() {
     try {
       const response = await fetch(`https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/friends/existFriendship/${this.userProfileId}`, {
         method: 'GET',
@@ -68,10 +64,7 @@ export class UserProfileFriendPage implements OnInit {
       if(response.status !== 200) return alert('Error!', 'Server error getting your frienship result', ['OK']);
 
       const data = await response.json();
-
-      this.frienshipExists = data;
-
-      return console.log('son amigos?', this.frienshipExists);
+      return this.friendshipExists = data;
     } catch (error) {
       return alert('Error!', 'Unable to know if you are his/her friend', ['OK']);
     }

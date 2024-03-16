@@ -19,10 +19,9 @@
     </div>
 
     <div class="add-remove">
-      <app-add-friend *ngIf="friendshipExists"></app-add-friend>
-      <app-remove-friend *ngIf="!friendshipExists"></app-remove-friend>
+      <app-add-friend [requestedId]="userProfileId" *ngIf="!friendshipExists"></app-add-friend>
+      <app-remove-friend [requestedId]="userProfileId" *ngIf="friendshipExists"></app-remove-friend>
     </div>
-
     <div class="MaxB">
       <div class="content" *ngFor="let userPost of userPosts">
           <div class="descrip-content">
@@ -44,7 +43,7 @@
       </div>
     </div>
 
-    
+
   <div class="modal">
     <div *ngIf="modalOpen == true">
       <app-modal [_id]="_id" ></app-modal>

@@ -3,12 +3,16 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
+  #test{
+    color: red;
+  }
+
   body{
     background: #FFFFFF;
     font-family: "Inter", sans-serif;
   }
-  
+
   .MaxA{
     margin-top: 10%;
     height: 10%;
@@ -28,7 +32,7 @@
     gap: 10px;
     // background: green;
   }
-  
+
   .MaxB{
     display: flex;
     justify-content: center;
@@ -36,13 +40,13 @@
     flex-direction: column;
     gap: 70px;
   }
-  
+
   .title{
     color: #80616D;
     font-size: 30px;
     font-weight: bold;
   }
-  
+
   .content{
     width: 90%;
     display: flex;
@@ -50,7 +54,7 @@
     align-items: center;
     flex-direction: column;
   }
-  
+
   .btn-content{
     width: 100%;
     display: flex;
@@ -60,7 +64,7 @@
     padding-top: 10px;
     margin-bottom: 5px;
   }
-  
+
   .title-content{
     width: 100%;
     display: flex;
@@ -69,7 +73,7 @@
     border-bottom: 1px solid #4D2959;
     padding-bottom: 10px;
   }
-  
+
   .descrip-content{
     width: 100%;
     display: flex;
@@ -84,7 +88,7 @@
     overflow-y: auto;
     margin-bottom: 10%;
   }
-  
+
   .img-content{
     width: 90%;
     display: grid;
@@ -92,13 +96,13 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  
+
   h3{
     color: #4D2959;
     font-size: 28px;
     font-weight: bold;
   }
-  
+
   .like-content{
     margin-top: 3%;
     width: 100%;
@@ -109,29 +113,29 @@
     border-bottom: 1px solid #4D2959;
     padding-bottom: 5%;
   }
-  
+
   .comments{
     width: 90%;
     display: flex;
   }
-  
+
   .text-comments{
     color: #4D2959;
     font-size: 11px;
     font-weight: bold;
   }
-  
+
   button{
     background: transparent;
     color: black;
     font-size: 16px;
   }
-  
+
   p{
     color: black;
     font-size: 16px;
   }
-  
+
   .day{
     color: #4D2959;
     opacity: 0.5;
@@ -140,23 +144,23 @@
     text-align: center;
     width: 300px;
   }
-  
+
   .icono{
     width: 25px;
     height: 25px;
   }
-  
+
   .img{
     width: 80px;
     height: 70px;
   }
-  
+
   img{
     width: 20px;
     height: 20px;
-  
+
   }
-  
+
   .icono-content{
     position: absolute;
     display: flex;
@@ -166,7 +170,7 @@
     top: 1;
     // background: yellow;
   }
-  
+
   .btn-icono{
     background: white;
   }

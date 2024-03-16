@@ -26,26 +26,7 @@ export class BtnSearchComponent implements OnInit {
   }
 
   async handleUserClick() {
-
-    try {
-      const response = await fetch(`https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/friends/existFriendship/${this.user._id}`, {
-        method: 'GET',
-        headers: { 'Authorization': `Bearer ${this.token.value}` }
-      });
-
-      if(response.status !== 200) return alert('Error!', 'Server error getting your frienship result', ['OK']);
-
-      const data = await response.json();
-
-      const friendshipExists = data;
-
-      return this.router.navigate(['/user-profile-friend'], { queryParams: {
-        id: this.user._id,
-        friendshipExists: friendshipExists
-      }});
-    } catch (error) {
-      return alert('Error!', 'Unable to know if you are his/her friend', ['OK']);
-    }
+    return this.router.navigate(['/user-profile-friend'], { queryParams: { id: this.user._id } });
   }
 }
 
