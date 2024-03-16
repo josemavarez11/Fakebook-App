@@ -6,13 +6,15 @@ import { GetResult, Preferences } from '@capacitor/preferences';
 import { alert } from 'src/app/utils/alert';
 import { FormsModule } from '@angular/forms';
 import { Storage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage'
+import { IonModal, IonContent } from "@ionic/angular/standalone";
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-my-post',
   templateUrl: './my-post.component.html',
   styleUrls: ['./my-post.component.scss'],
   standalone: true,
-  imports: [CommonModule, ModalComponent, FormsModule]
+  imports: [IonContent, IonModal, CommonModule, ModalComponent, FormsModule, IonicModule]
 })
 export class MyPostComponent  implements OnInit {
   likeClicked: boolean;
@@ -24,6 +26,7 @@ export class MyPostComponent  implements OnInit {
   showDeleteButton: boolean = false;
   showAddButton: boolean = false;
   countImg: number;
+  isOpen: boolean = false;
 
   @Input() _id: string = '';
   @Input() description: string = '';
@@ -174,6 +177,13 @@ export class MyPostComponent  implements OnInit {
 
     this.images.push(await getDownloadURL(imgRef));
     return this.countImg = this.images.length;
+  }
+
+  async delete() {
+    this.isOpen = true;
+  }
+  closeModal(){
+    this.isOpen = false;
   }
 
 }
