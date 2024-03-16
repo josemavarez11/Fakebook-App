@@ -3,11 +3,11 @@
 </div>
 
 <ion-modal [isOpen]="isOpen" style="
-  width: 80%; 
-  height: 20%; 
-  top: 30%; 
-  left: 10%; 
-  border-radius: 20px; 
+  width: 80%;
+  height: 20%;
+  top: 30%;
+  left: 10%;
+  border-radius: 20px;
   padding: 5px;
   background-color: white;  /* Establecer el color de fondo en blanco */
 ">
@@ -16,8 +16,8 @@
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 8%;">
         <p style="color: white; font-size: 12px;">are you sure you want to delete this post?</p>
         <div style="display: flex; justify-content: space-around; width: 100%;">
-          <ion-button>Confirn</ion-button>
-          <ion-button (click)="closeModal()">Cancel</ion-button>
+          <ion-button (click)="confirmDeleteClick()">Confirm</ion-button>
+          <ion-button (click)="cancelDeleteClick()">Cancel</ion-button>
         </div>
       </div>
     </ion-content>
@@ -34,8 +34,11 @@
         <button (click)="delete()">
           <img src="../../../../assets/trash-outline.svg">
         </button>
-        <button (click)="onEditClick()">
-          <img src="../../../../assets/{{pencilImage}}">
+        <button (click)="onEditClick()" *ngIf="!isEditing">
+          <img src="../../../../assets/pencil-outline.svg">
+        </button>
+        <button (click)="confirmEditClick()" *ngIf="isEditing">
+          <img src="../../../../assets/checkmark-outline.svg">
         </button>
       </div>
     </div>
@@ -43,15 +46,15 @@
       <p>{{description}}</p>
     </ng-container>
     <ng-template #editMode>
-      <input type="text" [(ngModel)]="description">
+      <input type="text" (change)="handleDescriptionInputChange($event)" [(ngModel)]="description">
     </ng-template>
   </div>
 
   <div class="img-content">
-    
+
     <div class="img-container" *ngFor="let image of images">
       <img [src]="image" class="img">
-      
+
       <button class="delete-button" *ngIf="showDeleteButton">
         <img src="../../../../assets/close-outline.svg" class="close-img">
       </button>

@@ -4,6 +4,7 @@ import { ModalComponent } from '../../others/modal/modal.component';
 import { SwitchService } from 'src/services/switch.service';
 import { GetResult, Preferences } from '@capacitor/preferences';
 import { alert } from 'src/app/utils/alert';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Storage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage'
 import { IonModal, IonContent } from "@ionic/angular/standalone";
@@ -36,7 +37,7 @@ export class MyPostComponent  implements OnInit {
   @Input() liked: boolean = false;
   @Input() favorited: boolean = false;
 
-  constructor(private storage: Storage, private modalSS: SwitchService) {
+  constructor(private storage: Storage, private modalSS: SwitchService, private router: Router) {
     this.likeClicked = false;
     this.favoriteClicked = false;
     this.modalOpen = false;
@@ -62,20 +63,50 @@ export class MyPostComponent  implements OnInit {
     console.log('delete');
   }
 
+  handleDescriptionInputChange(event: any) {
+    this.description = event.target.value;
+  }
+
+  async confirmEditClick() {
+    try {
+      const responseDesc = await fetch('https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/posts/updateBody', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.token.value}`,
+        },
+        body: JSON.stringify({ postId: this._id, newBody: this.description })
+      });
+
+      const responseImg = await fetch('https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/posts/updateImages', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.token.value}`,
+        },
+        body: JSON.stringify({ postId: this._id, newImages: this.images })
+      });
+
+      if(responseDesc.status !== 200 || responseImg.status !== 200) return alert('Error!', 'Server error editing post', ['OK']);
+
+      return this.onEditClick();
+    } catch (error) {
+      return alert ('Error!', 'Unable to edit post', ['OK']);
+    }
+  }
+
   onEditClick(){
     if(this.isEditing){
       this.isEditing = false;
       this.pencilImage = "../../../../assets/pencil-outline.svg";
       this.showDeleteButton = false;
       this.showAddButton = false;
-    }
-    else{
+    } else{
       this.isEditing = true
       this.pencilImage = "../../../../assets/checkmark-outline.svg";
       this.showDeleteButton = true;
       this.showAddButton = true;
     }
-
   }
 
   async likeClick(){
@@ -182,8 +213,25 @@ export class MyPostComponent  implements OnInit {
   async delete() {
     this.isOpen = true;
   }
-  closeModal(){
+
+  cancelDeleteClick(){
+    console.log('cancel');
     this.isOpen = false;
+  }
+
+  async confirmDeleteClick(){
+    try {
+      const response = await fetch(`https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/posts/delete/${this._id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${this.token.value}` }
+      });
+
+      if(response.status !== 200) return alert('Error!', 'Server error deleting post', ['OK']);
+
+      return this.isOpen = false;
+    } catch (error) {
+      return alert('Error!', 'Unable to delete post', ['OK']);
+    }
   }
 
 }

@@ -60,7 +60,7 @@ export class NewPostViewPage implements OnInit {
 
   async createPost() {
 
-    if(this.textInput.length === 0 || this.images.length === 0) {
+    if(this.textInput.length === 0 && this.images.length === 0) {
       return alert('Oops!', 'Please write something or upload an image to create a post', ['OK']);
     }
 
