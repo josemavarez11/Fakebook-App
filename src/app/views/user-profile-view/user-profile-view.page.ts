@@ -70,4 +70,8 @@ export class UserProfileViewPage implements OnInit {
     console.log('Favorite clicked');
     //enviar al usuario a la vista favorite-posts view
   }
+
+  favClick(){
+    
+  }
 }

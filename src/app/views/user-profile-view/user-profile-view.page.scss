@@ -366,6 +366,38 @@ img{
     opacity: 0;
   }
 }
+.containerr input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.containerr {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.containerr svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  transition: all 0.3s;
+  fill: #666;
+}
+
+.containerr svg:hover {
+  transform: scale(1.1);
+}
+
+.containerr input:checked ~ svg {
+  fill: #4D2959;
+}
 
 
 
