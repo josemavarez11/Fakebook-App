@@ -273,3 +273,37 @@ img{
     width: 20px;
     height: 20px;
   }
+
+  .file-select {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .file-select::before {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 3px dashed #4D2959;
+    content: '+';
+    color: #4D2959;
+    font-size: 40px;
+    text-align: center;/* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .file-select input[type="file"] {
+    opacity: 0;
+    width: 75px;
+    height: 70px;
+    display: inline-block;
+  }
+  
+  #src-file1::before {
+    content: 'Seleccionar Archivo 1';
+  }

@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterLink, Router } from '@angular/router';
 import { alert } from 'src/app/utils/alert';
 import { GetResult, Preferences } from '@capacitor/preferences';
-import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage'
+import { Storage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage'
 
 @Component({
   selector: 'app-new-post-view',

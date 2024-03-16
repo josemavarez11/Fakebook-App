@@ -24,11 +24,16 @@
   </div>
 
   <div class="img-content">
+    
     <div class="img-container" *ngFor="let image of images">
       <img [src]="image" class="img">
+      
       <button class="delete-button" *ngIf="showDeleteButton">
         <img src="../../../../assets/close-outline.svg" class="close-img">
       </button>
+    </div>
+    <div class="file-select" id="src-fiel" *ngIf="showAddButton">
+      <input type="file" (change)="uploadImage($event)" aria-label="Image" name="src-file2">
     </div>
   </div>
 
