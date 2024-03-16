@@ -1,23 +1,29 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
-import { Storage} from '@angular/fire/storage';
 import { ModalComponent } from '../../others/modal/modal.component';
 import { SwitchService } from 'src/services/switch.service';
 import { GetResult, Preferences } from '@capacitor/preferences';
 import { alert } from 'src/app/utils/alert';
+import { FormsModule } from '@angular/forms';
+import { Storage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage'
 
 @Component({
   selector: 'app-my-post',
   templateUrl: './my-post.component.html',
   styleUrls: ['./my-post.component.scss'],
   standalone: true,
-  imports: [CommonModule, ModalComponent]
+  imports: [CommonModule, ModalComponent, FormsModule]
 })
 export class MyPostComponent  implements OnInit {
   likeClicked: boolean;
   favoriteClicked: boolean;
   modalOpen: boolean;
   token: GetResult ;
+  isEditing: boolean = false;
+  pencilImage: string = "../../../../assets/pencil-outline.svg";
+  showDeleteButton: boolean = false;
+  showAddButton: boolean = false;
+  countImg: number;
 
   @Input() _id: string = '';
   @Input() description: string = '';
@@ -32,6 +38,7 @@ export class MyPostComponent  implements OnInit {
     this.favoriteClicked = false;
     this.modalOpen = false;
     this.token = { value: '' };
+    this.countImg = 0;
   }
 
 
@@ -53,7 +60,19 @@ export class MyPostComponent  implements OnInit {
   }
 
   onEditClick(){
-    console.log('edit');
+    if(this.isEditing){
+      this.isEditing = false;
+      this.pencilImage = "../../../../assets/pencil-outline.svg";
+      this.showDeleteButton = false;
+      this.showAddButton = false;
+    }
+    else{
+      this.isEditing = true
+      this.pencilImage = "../../../../assets/checkmark-outline.svg";
+      this.showDeleteButton = true;
+      this.showAddButton = true;
+    }
+
   }
 
   async likeClick(){
@@ -141,6 +160,20 @@ export class MyPostComponent  implements OnInit {
         return alert('Error!', 'Unable to add favorite', ['OK']);
       }
     }
+  }
+
+  async uploadImage(event: any){
+    const file = event.target.files[0];
+    const imgRef = ref(this.storage, `images/${file.name}`);
+
+    try {
+      await uploadBytes(imgRef, file);
+    } catch (error) {
+      return alert('Error', 'Something went wrong uploading your image', ['Try Again']);
+    }
+
+    this.images.push(await getDownloadURL(imgRef));
+    return this.countImg = this.images.length;
   }
 
 }

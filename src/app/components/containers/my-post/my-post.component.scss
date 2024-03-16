@@ -12,13 +12,6 @@
     flex-direction: column;
     font-size: 16px;
 }
-.day{
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  text-align: justify;
-}
 .img-content{
   margin-top: 5px;
   width: 90%;
@@ -104,7 +97,7 @@ img{
 .trash{
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  width: 30%;
   gap: 15px;
 }
 
@@ -221,7 +214,9 @@ img{
     color: #4D2959;
     opacity: 0.4;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 12px;
+    text-align: start;
+    width: 100%;
   }
 
   .containerr input {
@@ -255,4 +250,60 @@ img{
 
   .containerr input:checked ~ svg {
     fill: #4D2959;
+  }
+
+  input{
+    background: transparent;
+    border: none;
+    color: black;
+    outline: none;
+  }
+
+  .img-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .delete-button {
+    position: absolute;
+    top: 5px; 
+    right: 15px; 
+  }
+  .close-img{
+    width: 20px;
+    height: 20px;
+  }
+
+  .file-select {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .file-select::before {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 3px dashed #4D2959;
+    content: '+';
+    color: #4D2959;
+    font-size: 40px;
+    text-align: center;/* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .file-select input[type="file"] {
+    opacity: 0;
+    width: 75px;
+    height: 70px;
+    display: inline-block;
+  }
+  
+  #src-file1::before {
+    content: 'Seleccionar Archivo 1';
   }
