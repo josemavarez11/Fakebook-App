@@ -12,7 +12,7 @@ import { BtnSearchComponent } from 'src/app/components/others/btn-search/btn-sea
   templateUrl: './search-view.page.html',
   styleUrls: ['./search-view.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink, BtnSearchComponent] 
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink, BtnSearchComponent]
 })
 export class SearchViewPage implements OnInit {
   token: GetResult;
@@ -57,8 +57,6 @@ export class SearchViewPage implements OnInit {
   handleUserClick() {
     console.log('User clicked');
   }
-
-
 
   async presentModal(){
     this.isOpen = true;

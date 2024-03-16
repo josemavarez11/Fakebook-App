@@ -20,30 +20,10 @@
     </div>
     <div class="MaxB">
         <section *ngFor="let user of usersFound">
-          <!-- <button *ngFor="let user of usersFound" (click)="presentModal()">
-            {{user.name}}
-          </button> -->
           <app-btn-search [user]="user" ></app-btn-search>
         </section>
     </div>
   </div>
-
-
-  <!-- <ion-modal [isOpen]="isOpen">
-    <ng-template>
-      <ion-content>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Nombre</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis alias fugiat asperiores repellat? Ducimus labore ex dolor cumque? Veritatis odio exercitationem cupiditate, voluptate illo officiis non dignissimos suscipit ut perferendis?</p>
-          </ion-card-content>
-        </ion-card>
-        <ion-button (click)="dismissModal()">Close</ion-button>
-      </ion-content>
-    </ng-template>
-    </ion-modal> -->
 </body>
 </html>
 

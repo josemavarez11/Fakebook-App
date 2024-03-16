@@ -15,35 +15,35 @@
       </button>
       </div>
       <div class="ask">
-        <h3 class="title">Friend</h3>
+        <h3 class="title">{{userName}}</h3>
       </div>
     </div>
 
     <div class="add-remove">
-      <app-add-friend></app-add-friend>
-      <app-remove-friend></app-remove-friend>
+      <app-add-friend *ngIf="friendshipExists"></app-add-friend>
+      <app-remove-friend *ngIf="!friendshipExists"></app-remove-friend>
     </div>
 
     <div class="MaxB">
-      <div class="content">
+      <div class="content" *ngFor="let userPost of userPosts">
           <div class="descrip-content">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio dologggggribus ut ab iure magni corporis facere amet ipsam, adipisci esse, maxime modi laborum animi? Quas alias corrupti eius aut voluptatum!</p>
+            <p>{{userPost.body}} </p>
           </div>
-          <div class="img-content">
-            <img [src]="image" *ngFor="let image of images" class="img">
-          </div>
+
+          <ng-container class="img-content" *ngFor="let image of userPost.images">
+            <img [src]="image" class="img">
+          </ng-container>
 
           <div class="like-content">
             <div class="comments">
               <button>
-                <p (click)="handleExploreCommentsClick()" class="text-comments">explore comments</p>
+                <p class="text-comments">explore comments</p>
               </button>
             </div>
-              <p class="day">last edited 12/12/23 15:30</p>
+              <p class="day">{{userPost.createdAt}}</p>
           </div>
       </div>
     </div>
-
   </div>
 </body>
 </html>

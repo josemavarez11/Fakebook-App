@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -9,6 +9,7 @@ import { alert } from 'src/app/utils/alert';
 import { GetResult, Preferences } from '@capacitor/preferences';
 import { AddFriendComponent } from 'src/app/components/others/add-friend/add-friend.component';
 import { RemoveFriendComponent } from 'src/app/components/others/remove-friend/remove-friend.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile-friend',
@@ -21,36 +22,67 @@ export class UserProfileFriendPage implements OnInit {
   images: string[];
   token: GetResult;
   userName: string;
+  userPosts: any[] = [];
+  frienshipExists: boolean;
+  userProfileId: string = '';
 
-  constructor(private storage: Storage) { 
+  constructor(private storage: Storage, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {
     this.images = [];
     this.token = { value: '' };
     this.userName = "";
-   }
+    this.frienshipExists = false;
+  }
 
   async ngOnInit() {
     this.token = await Preferences.get({ key : 'token' });
-    this.getNameAndEmail();
-    this.getImages();
+    this.route.queryParams.subscribe(params => {
+      const paramValue = params['id'];
+      this.userProfileId = paramValue;
+      const paramValue2 = params['friendshipExists'];
+      this.frienshipExists = paramValue2;
+      console.log('son amigos?', this.frienshipExists);
+    });
+    //this.friendshipExists();
+    this.getName();
     this.getAllPosts();
+    this.getImages();
   }
-  async getAllPosts() {
+
+  async friendshipExists() {
     try {
-      const response = await fetch('https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/posts/getAll', {
+      const response = await fetch(`https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/friends/existFriendship/${this.userProfileId}`, {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${this.token.value}` }
+      });
+
+      if(response.status !== 200) return alert('Error!', 'Server error getting your frienship result', ['OK']);
+
+      const data = await response.json();
+
+      this.frienshipExists = data;
+
+      return console.log('son amigos?', this.frienshipExists);
+    } catch (error) {
+      return alert('Error!', 'Unable to know if you are his/her friend', ['OK']);
+    }
+  }
+
+  async getAllPosts() {
+    try {
+      const response = await fetch('https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/posts/getAllByUserId', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.token.value}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: this.userProfileId })
       });
 
       if(response.status !== 200) return alert('Error!', 'Server error getting your posts', ['OK']);
 
       const data = await response.json();
 
-      if(data.length === 0){
-        //render a message like "It seems like you haven't posted anything yet."
-        console.log('No posts');
-      }
-
-      return console.log("user posts: ", data.posts);
+      return this.userPosts = data.posts;
     } catch (error) {
       return alert('Error!', 'Unable to get your posts', ['OK']);
     }
@@ -61,43 +93,33 @@ export class UserProfileFriendPage implements OnInit {
 
     listAll(imgRef)
     .then(async response => {
-        console.log(response);
         this.images = [];
         for(let item of response.items){
           const url = await getDownloadURL(item)
           this.images.push(url);
-          // console.log(url);
         }
     })
     .catch(error => console.log(error));
   }
 
-  async getNameAndEmail() {
+  async getName() {
     try {
-      const response = await fetch('https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/users/getNameAndEmail', {
-        method: 'GET',
-        headers: { "Authorization": `Bearer ${this.token.value}` }
+      const response = await fetch('https://fakebook-api-dev-qamc.3.us-1.fl0.io/api/users/getNameById', {
+        method: 'POST',
+        headers: {
+          "Authorization": `Bearer ${this.token.value}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id: this.userProfileId })
       });
 
       if(response.status !== 200) return alert("Oops", "Something went wrong trying to get user email and name", ["OK"]);
 
       const data = await response.json();
+
       this.userName = data.name;
     } catch (error) {
       return alert("Oops", "Something went wrong trying to get user email and name", ["OK"]);
     }
   }
-
-  handlePencilClick() {
-    alert("Edit Post", "This feature is not available yet", ["OK"]);
-  }
-
-  handleTrashClick() {
-    alert("Delete Post", "This feature is not available yet", ["OK"]);
-  }
-
-  handleExploreCommentsClick() {
-    alert("Explore Comments", "This feature is not available yet", ["OK"]);
-  }
-
 }

@@ -43,7 +43,7 @@ export class UserProfileViewPage implements OnInit {
       if(response.status !== 200) return alert('Error!', 'Server error getting your posts', ['OK']);
 
       const data = await response.json();
-      console.log(data.posts);
+
       return this.myPosts = data.posts;
     } catch (error) {
       return alert('Error!', 'Unable to get your posts', ['OK']);
