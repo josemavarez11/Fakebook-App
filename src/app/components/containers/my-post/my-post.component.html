@@ -12,11 +12,16 @@
               <img src="../../../../assets/trash-outline.svg">
             </button>
             <button (click)="onEditClick()">
-              <img src="../../../../assets/pencil-outline.svg">
+              <img src="../../../../assets/{{pencilImage}}">
             </button>
           </div>
     </div>
+    <ng-container *ngIf="!isEditing; else editMode">
     <p>{{description}}</p>
+    </ng-container>
+    <ng-template #editMode>
+      <input type="text" [(ngModel)]="description">
+    </ng-template>
   </div>
 
   <div class="img-content">

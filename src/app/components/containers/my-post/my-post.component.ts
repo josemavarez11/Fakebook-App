@@ -5,19 +5,22 @@ import { ModalComponent } from '../../others/modal/modal.component';
 import { SwitchService } from 'src/services/switch.service';
 import { GetResult, Preferences } from '@capacitor/preferences';
 import { alert } from 'src/app/utils/alert';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-my-post',
   templateUrl: './my-post.component.html',
   styleUrls: ['./my-post.component.scss'],
   standalone: true,
-  imports: [CommonModule, ModalComponent]
+  imports: [CommonModule, ModalComponent, FormsModule]
 })
 export class MyPostComponent  implements OnInit {
   likeClicked: boolean;
   favoriteClicked: boolean;
   modalOpen: boolean;
   token: GetResult ;
+  isEditing: boolean = false;
+  pencilImage: string = "../../../../assets/pencil-outline.svg";
 
   @Input() _id: string = '';
   @Input() description: string = '';
@@ -53,7 +56,8 @@ export class MyPostComponent  implements OnInit {
   }
 
   onEditClick(){
-    console.log('edit');
+    this.isEditing = true
+    this.pencilImage = "../../../../assets/checkmark-outline.svg";
   }
 
   async likeClick(){
