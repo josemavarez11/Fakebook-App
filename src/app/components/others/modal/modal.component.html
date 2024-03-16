@@ -6,7 +6,7 @@
       </button>
 
       <div class="input">
-        <app-input-comments></app-input-comments>
+        <app-input-comments [postId]="_id" ></app-input-comments>
       </div>
 
       <ng-container *ngFor="let comment of comments">

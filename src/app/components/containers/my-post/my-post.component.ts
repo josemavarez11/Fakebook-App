@@ -87,7 +87,8 @@ export class MyPostComponent  implements OnInit {
         body: JSON.stringify({ postId: this._id, newImages: this.images })
       });
 
-      if(responseDesc.status !== 200 || responseImg.status !== 200) return alert('Error!', 'Server error editing post', ['OK']);
+      // if(responseDesc.status !== 200 ) return alert('Error!', 'Server error editing post (body)', ['OK']);
+      // if(responseImg.status !== 200 ) return alert('Error!', 'Server error editing post (images)', ['OK']);
 
       return this.onEditClick();
     } catch (error) {
