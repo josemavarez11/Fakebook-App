@@ -43,6 +43,7 @@
         <div class="scroll" >
           <app-my-post
             *ngFor="let myPost of myPosts"
+            [_id]="myPost._id"
             [description]="myPost.body"
             [images]="myPost.images"
             [date]="myPost.updatedAt"
