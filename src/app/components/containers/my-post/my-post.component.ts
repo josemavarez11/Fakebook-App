@@ -21,6 +21,7 @@ export class MyPostComponent  implements OnInit {
   token: GetResult ;
   isEditing: boolean = false;
   pencilImage: string = "../../../../assets/pencil-outline.svg";
+  showDeleteButton: boolean = false;
 
   @Input() _id: string = '';
   @Input() description: string = '';
@@ -56,8 +57,17 @@ export class MyPostComponent  implements OnInit {
   }
 
   onEditClick(){
-    this.isEditing = true
-    this.pencilImage = "../../../../assets/checkmark-outline.svg";
+    if(this.isEditing){
+      this.isEditing = false;
+      this.pencilImage = "../../../../assets/pencil-outline.svg";
+      this.showDeleteButton = false;
+    }
+    else{
+      this.isEditing = true
+      this.pencilImage = "../../../../assets/checkmark-outline.svg";
+      this.showDeleteButton = true;
+    }
+
   }
 
   async likeClick(){

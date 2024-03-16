@@ -258,3 +258,14 @@ img{
     color: black;
     outline: none;
   }
+
+  .img-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .delete-button {
+    position: absolute;
+    top: 5px; /* Ajusta la posición vertical según sea necesario */
+    right: 15px; /* Ajusta la posición horizontal según sea necesario */
+  }
