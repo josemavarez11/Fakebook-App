@@ -1,4 +1,4 @@
-# Fakebook API
+# Fakebook App
 
 <image src="./src/assets/iconoF.png" align="center" width="200px" height="200px" alt="fakebook-logo"/>
 
